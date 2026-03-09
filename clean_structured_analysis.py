@@ -159,62 +159,39 @@ def plot_heatmaps(human_df, kill_df, botkill_df, death_df, botdeath_df):
 
     map_img = mpimg.imread("minimaps/AmbroseValley_Minimap.png")
 
-    # ---------------- PLAYER TRAFFIC ----------------
+    # PLAYER TRAFFIC
     fig1, ax1 = plt.subplots(figsize=(6,5))
     ax1.imshow(map_img)
     ax1.set_xlim(0,4320)
     ax1.set_ylim(4320,0)
-
-    sns.kdeplot(
-        x=human_df["map_x"],
-        y=human_df["map_y"],
-        cmap="Reds",
-        fill=True,
-        thresh=0.05,
-        warn_singular=False,
-        ax=ax1
-    )
-
+    if len(human_df) > 1:  # ← add pannu
+        sns.kdeplot(x=human_df["map_x"], y=human_df["map_y"],
+                    cmap="Reds", fill=True, thresh=0.05,
+                    warn_singular=False, ax=ax1)
     ax1.set_title("Player Traffic")
 
-    # ---------------- KILL ZONES ----------------
+    # KILL ZONES
     all_kills = pd.concat([kill_df, botkill_df])
-
     fig2, ax2 = plt.subplots(figsize=(6,5))
     ax2.imshow(map_img)
     ax2.set_xlim(0,4320)
     ax2.set_ylim(4320,0)
-
-    sns.kdeplot(
-        x=all_kills["map_x"],
-        y=all_kills["map_y"],
-        cmap="Greens",
-        fill=True,
-        thresh=0.05,
-        warn_singular=False,
-        ax=ax2
-    )
-
+    if len(all_kills) > 1:  # ← add pannu
+        sns.kdeplot(x=all_kills["map_x"], y=all_kills["map_y"],
+                    cmap="Greens", fill=True, thresh=0.05,
+                    warn_singular=False, ax=ax2)
     ax2.set_title("Kill Zones")
 
-    # ---------------- DEATH ZONES ----------------
+    # DEATH ZONES
     all_deaths = pd.concat([death_df, botdeath_df])
-
     fig3, ax3 = plt.subplots(figsize=(6,5))
     ax3.imshow(map_img)
     ax3.set_xlim(0,4320)
     ax3.set_ylim(4320,0)
-
-    sns.kdeplot(
-        x=all_deaths["map_x"],
-        y=all_deaths["map_y"],
-        cmap="Blues",
-        fill=True,
-        thresh=0.05,
-        warn_singular=False,
-        ax=ax3
-    )
-
+    if len(all_deaths) > 1:  # ← add pannu
+        sns.kdeplot(x=all_deaths["map_x"], y=all_deaths["map_y"],
+                    cmap="Blues", fill=True, thresh=0.05,
+                    warn_singular=False, ax=ax3)
     ax3.set_title("Death Zones")
 
     return fig1, fig2, fig3
