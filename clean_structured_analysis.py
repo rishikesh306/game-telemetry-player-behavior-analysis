@@ -7,6 +7,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import matplotlib.image as mpimg
 
+BASE_DIR = os.path.dirname(__file__)
+
 # -----------------------------------------------------
 # LOAD DATA
 # -----------------------------------------------------
@@ -106,7 +108,7 @@ def separate_events(df):
 
 def plot_journey(human_df, bot_df, kill_df, death_df, botkill_df, botdeath_df, loot_df, storm_df):
 
-    map_img = mpimg.imread("minimaps/AmbroseValley_Minimap.png")
+    map_img = mpimg.imread(os.path.join(BASE_DIR, "minimaps", "AmbroseValley_Minimap.png"))
 
     plt.figure(figsize=(10, 8))
     plt.imshow(map_img)
@@ -157,7 +159,7 @@ def plot_journey(human_df, bot_df, kill_df, death_df, botkill_df, botdeath_df, l
 
 def plot_heatmaps(human_df, kill_df, botkill_df, death_df, botdeath_df):
 
-    map_img = mpimg.imread("minimaps/AmbroseValley_Minimap.png")
+    map_img = mpimg.imread(os.path.join(BASE_DIR, "minimaps", "AmbroseValley_Minimap.png"))
 
     # PLAYER TRAFFIC
     fig1, ax1 = plt.subplots(figsize=(6,5))
