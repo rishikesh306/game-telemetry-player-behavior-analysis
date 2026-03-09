@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import matplotlib.image as mpimg
 
-BASE_DIR = os.path.dirname(__file__)
+
 
 # -----------------------------------------------------
 # LOAD DATA
