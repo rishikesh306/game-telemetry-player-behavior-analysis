@@ -59,7 +59,12 @@ Using the processed data from the single file, the following visualizations were
 ### Player Journey Map
 
 - Displays player movement on the game minimap  
-- Marks events such as kills, deaths, loot interactions, and storm eliminations  
+- Marks events such as kills, deaths, loot interactions, and storm eliminations 
+
+### 👱vs🤖 Human vs Bot movement and gameplay 
+
+- Shows the difference between human and bot gameplay.
+- (Example: **Date:** February_11, **Match_id:** 5a7b3a31-17cb-485a-8550-676323579c18.nakama-0)
 
 ### Player Traffic Heatmap
 
